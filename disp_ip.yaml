@@ -1,0 +1,6 @@
+- name: New IP
+  hosts: localhost
+  tasks:
+    - name: New IP
+      debug:
+        msg: "{{ wip_ip }}"
