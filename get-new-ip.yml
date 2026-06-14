@@ -21,6 +21,9 @@
       set_stats:
         data:
           wip_ip: "{{ (new_ip_address['ip_address']['address'] | split('/')) | first }}"
+    - name: set New IPAM IP fact
+      set_fact:
+          wip_ip: "{{ (new_ip_address['ip_address']['address'] | split('/')) | first }}"
     - name: printd
       ansible.builtin.debug:
         msg: "{{ wip_ip }}"
