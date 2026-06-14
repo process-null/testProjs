@@ -1,5 +1,9 @@
-- name: New IP
+---
+
+- name: "Dsiplay new IP from NetBox"
+  connection: local
   hosts: localhost
+  gather_facts: false
   tasks:
     - name: New IP
       debug:
