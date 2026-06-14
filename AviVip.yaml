@@ -1,0 +1,22 @@
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Create placeholder VS (no pool)
+      vmware.alb.avi_virtualservice:
+        controller: "{{ avi_controller }}"
+        username: "{{ lookup('env', 'adent_user') }}"
+        password: "{{ lookup('env', 'adent_pass') }}"
+        tenant: admin
+        state: present
+
+        name: placeholder-vs
+        services:
+          - port: 80
+
+        vip:
+          - vip_id: "1"
+            ip_address:
+              type: V4
+              addr: "{{ wip_ip }}"
